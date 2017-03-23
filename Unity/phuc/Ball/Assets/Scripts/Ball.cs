@@ -9,21 +9,21 @@ public class Ball : MonoBehaviour
 	private Vector3 paddleToBallVector;
 
 	// Use this for initialization
-	void Start ()
+	public void Start ()
 	{
-		paddle = GameObject.FindObjectOfType<Paddle> ();
-		paddleToBallVector = this.transform.position - paddle.transform.position;
+		//paddle = GameObject.FindObjectOfType<Paddle> ();
+//		paddleToBallVector = this.transform.position - paddle.transform.position;
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	public void Update ()
 	{
 		if (!hasStarted) {
 			// Lock the ball relative to the paddle.
-			this.transform.position = paddle.transform.position + paddleToBallVector;
+			//this.transform.position = paddle.transform.position + paddleToBallVector;
 			
 			// Wait for a mouse press to launch.
-			if (Input.GetKeyDown (KeyCode.Space)) {
+			if (Input.touchCount > 0) {
 				print ("Mouse clicked, launch ball");
 				hasStarted = true;
 				this.GetComponent<Rigidbody2D> ().velocity = new Vector2 (2f, 5f);
